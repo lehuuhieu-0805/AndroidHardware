@@ -32,9 +32,9 @@ public class MyCameraApiActivity extends Activity {
         public void onPictureTaken(byte[] data, Camera camera) {
             Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0 , data.length);
             if(bitmap == null){
-                Toast.makeText(getApplicationContext(), "not taken", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Not Taken", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(getApplicationContext(), "taken", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Taken", Toast.LENGTH_SHORT).show();
                 pic.setImageBitmap(bitmap);
             }
             cameraObject.release();
