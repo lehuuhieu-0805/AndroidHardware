@@ -36,7 +36,6 @@ public class MyCameraActivity extends Activity {
     private static final int CAMERA_REQUEST = 998;
     private static final int CAMERA_VIDEO_REQUEST = 997;
     private ImageView imgPresent;
-    private Uri outputFileUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
