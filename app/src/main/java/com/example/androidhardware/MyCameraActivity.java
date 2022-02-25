@@ -68,24 +68,6 @@ public class MyCameraActivity extends Activity {
             if(data != null){
                 Bitmap photo = (Bitmap) data.getExtras().get("data");
                 imgPresent.setImageBitmap(photo);
-            } else {
-                int width = imgPresent.getWidth();
-                int height = imgPresent.getHeight();
-                BitmapFactory.Options factoryOptions = new BitmapFactory.Options();
-                factoryOptions.inJustDecodeBounds = true;
-                BitmapFactory.decodeFile(outputFileUri.getPath(), factoryOptions);
-                int imageWidth = factoryOptions.outWidth;
-                int imageHeight = factoryOptions.outHeight;
-
-                // Determine how much to scale down the image
-                int scaleFactor = Math.min(imageWidth / width, imageHeight / height);
-                // Decode the image file into a Bitmap sized to fill the View
-                factoryOptions.inJustDecodeBounds = false;
-                factoryOptions.inSampleSize = scaleFactor;
-                factoryOptions.inPurgeable= true;
-                Bitmap bitmap = BitmapFactory.decodeFile(outputFileUri.getPath(), factoryOptions);
-                Toast.makeText(this, "File has already started", Toast.LENGTH_LONG).show();
-                imgPresent.setImageBitmap(bitmap);
             }
         } else if(requestCode == CAMERA_VIDEO_REQUEST){
             Toast.makeText(MyCameraActivity.this,"Saved Video Successfully" ,Toast.LENGTH_SHORT).show();
